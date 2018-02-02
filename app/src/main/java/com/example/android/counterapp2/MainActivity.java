@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Updates current scores and current set score for team a and b
+     * Display scores
      */
 
     public void displayScoresA(int currentScore, int setScore) {
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         TextView aCurrentView = (TextView) findViewById(R.id.a_current_score_textView);
 
         aOverallView.setText(String.valueOf(setScore));
-        aCurrentView.setText("current score: " + currentScore);
+        aCurrentView.setText("current score: " + currentScore + " count: " + aCount);
     }
 
     public void displayScoresB(int currentScore, int setScore) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         TextView bCurrentView = (TextView) findViewById(R.id.b_current_score_textView);
 
         bOverallView.setText(String.valueOf(setScore));
-        bCurrentView.setText("current score: " + currentScore);
+        bCurrentView.setText("current score: " + currentScore + " count: " + bCount);
 
     }
 
@@ -50,14 +50,18 @@ public class MainActivity extends AppCompatActivity {
         TextView aCurrentView = (TextView) findViewById(R.id.a_current_score_textView);
         TextView bCurrentView = (TextView) findViewById(R.id.b_current_score_textView);
 
-        aCurrentView.setText("current score: " + inputA);
-        bCurrentView.setText("current score: " + inputB);
+        aCurrentView.setText("current score: " + inputA + " count: " + aCount);
+        bCurrentView.setText("current score: " + inputB + " count: " + bCount);
     }
+
+    /**
+     * Update scores.
+     */
 
     public void updateAscores(int currentScore, int setScore) {
         if ((currentScore == 40) && (aCurrentScore != bCurrentScore)) {
             displayScoresA(currentScore, setScore);
-        } else if ((aCurrentScore == bCurrentScore) && (aCurrentScore == 40)) {
+        } else if ((bCurrentScore == 40) && (aCurrentScore == 40)) {
             isDeuce = true;
             displayDeuce("DEUCE", "DEUCE");
         } else {
@@ -68,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     public void updateBscores(int currentScore, int setScore) {
         if ((currentScore == 40) && (aCurrentScore != bCurrentScore)) {
             displayScoresB(currentScore, aSetScore);
-        } else if ((aCurrentScore == bCurrentScore) && (aCurrentScore == 40)) {
+        } else if ((bCurrentScore == 40) && (aCurrentScore == 40)) {
             isDeuce = true;
             displayDeuce("DEUCE", "DEUCE");
         } else {
@@ -84,20 +88,19 @@ public class MainActivity extends AppCompatActivity {
 
         if (isDeuce) {
             deuceMatch();
-        }
-
-        if (aCount == 1) {
-            aCurrentScore = 1;
-        } else if (aCount == 2) {
+        } else if (aCount == 1) {
             aCurrentScore = 15;
-        } else if (aCount == 3) {
+        } else if (aCount == 2) {
             aCurrentScore = 30;
-        } else if (aCount == 4) {
+        } else if (aCount == 3) {
             aCurrentScore = 40;
-        } else if ((aCount > 4) && !isDeuce) {
+        } else if ((aCount > 3) && !isDeuce) {
             aCount = 0;
             aCurrentScore = 0;
             aSetScore += 1;
+
+            bCount = 0;
+            bCurrentScore = 0;
         }
         updateAscores(aCurrentScore, aSetScore);
     }
@@ -107,43 +110,42 @@ public class MainActivity extends AppCompatActivity {
 
         if (isDeuce) {
             deuceMatch();
-        }
-
-        if (bCount == 1) {
-            bCurrentScore = 1;
-        } else if (bCount == 2) {
+        } else if (bCount == 1) {
             bCurrentScore = 15;
-        } else if (bCount == 3) {
+        } else if (bCount == 2) {
             bCurrentScore = 30;
-        } else if (bCount == 4) {
+        } else if (bCount == 3) {
             bCurrentScore = 40;
-        } else if ((bCount > 4) && !isDeuce) {
+        } else if ((bCount > 3) && !isDeuce) {
             bCount = 0;
             bCurrentScore = 0;
             bSetScore += 1;
+
+            aCount = 0;
+            aCurrentScore = 0;
         }
 
         updateBscores(bCurrentScore, bSetScore);
     }
 
     public void deuceMatch() {
-        if ((bCount > aCount) && (bCount - aCount == 1)) {
-            bCount += 1;
-            displayDeuce("DEUCE", "DEUCE - ADV");
-        } else if ((aCount > bCount) && (aCount - bCount == 1)) {
-            aCount += 1;
-            displayDeuce("DEUCE - ADV", "DEUCE");
-        } else if (aCount - bCount == 2) {
-            isDeuce = false;
-            aCount = 0;
-            aCurrentScore = 0;
-            aSetScore += 1;
-        } else if (bCount - aCount == 2) {
-            isDeuce = false;
-            bCount = 0;
-            bCurrentScore = 0;
-            bSetScore += 1;
-        }
+//        if (bCount > aCount) {
+//            displayDeuce("DEUCE", "DEUCE - ADV");
+//        } else if (aCount > bCount) {
+//            displayDeuce("DEUCE - ADV", "DEUCE");
+//        } else if ((aCount - bCount) == 2) {
+//            isDeuce = false;
+//            aCount = 0;
+//            aCurrentScore = 0;
+//            aSetScore += 1;
+//        } else if ((bCount - aCount) == 2) {
+//            isDeuce = false;
+//            bCount = 0;
+//            bCurrentScore = 0;
+//            bSetScore += 1;
+//        }
+
+        displayDeuce("LA", "LA LAAAA");
     }
 
     /**
