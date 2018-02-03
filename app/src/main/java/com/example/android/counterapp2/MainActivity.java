@@ -74,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
         } else if (aCount == 3) {
             aCurrentScore = 40;
             displayScoresA(aCurrentScore, aSetScore);
-        } else if ( ((aCount > 3) && (aCount - bCount == 2)) || ((aCount > 3) && (bCount < 3)) ){
+        } else if ( ((aCount > 3) && (aCount - bCount == 2)) ||
+                ((aCount > 3) && (bCount < 3)) ){
             isDeuce = false;
             aCount = 0;
             aCurrentScore = 0;
@@ -85,16 +86,17 @@ public class MainActivity extends AppCompatActivity {
             displayScoresA(aCurrentScore, aSetScore);
             displayScoresB(bCurrentScore, bSetScore);
         } else if ((aCount > bCount) && (aCount > 3)) {
-            displayDeuce("DEUCE - ADV", "DEUCE");
+            displayDeuce("ADV", "DEUCE");
         } else if ((aCount < bCount) && (aCount > 3)) {
-            displayDeuce("DEUCE", "DEUCE - ADV");
+            displayDeuce("DEUCE", " ADV");
         }
     }
 
     public void bScored(View v) {
         bCount += 1;
 
-        if ((aCount == bCount) && (bCount == 3) || ((aCount == bCount) && (bCount > 3))) {
+        if ((aCount == bCount) && (bCount == 3) ||
+                ((aCount == bCount) && (bCount > 3))) {
             displayDeuce("DEUCE", "DEUCE");
             return;
         }
@@ -108,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
         } else if (bCount == 3) {
             bCurrentScore = 40;
             displayScoresB(bCurrentScore, bSetScore);
-        } else if ( (bCount > 3) && (bCount - aCount == 2) || ((bCount > 3) && (aCount < 3)) ) {
+        } else if ( (bCount > 3) && (bCount - aCount == 2) ||
+                ((bCount > 3) && (aCount < 3)) ) {
             isDeuce = false;
             bCount = 0;
             bCurrentScore = 0;
@@ -119,9 +122,9 @@ public class MainActivity extends AppCompatActivity {
             displayScoresA(aCurrentScore, aSetScore);
             displayScoresB(bCurrentScore, bSetScore);
         } else if ((bCount > aCount) && (bCount > 3)) {
-            displayDeuce("DEUCE", "DEUCE - ADV");
+            displayDeuce("DEUCE", "ADV");
         } else if ((bCount < aCount) && (bCount > 3)) {
-            displayDeuce("DEUCE - ADV", "DEUCE");
+            displayDeuce("ADV", "DEUCE");
         }
     }
 

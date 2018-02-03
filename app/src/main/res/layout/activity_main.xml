@@ -4,112 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light"
     tools:context="com.example.android.counterapp2.MainActivity">
 
     <View
         android:id="@+id/separator_view"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@android:color/darker_gray"
-        android:layout_centerVertical="true" />
-
-    <Button
-        android:layout_alignParentRight="true"
-        android:layout_above="@id/separator_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_red_dark"
-        android:onClick="aScored"/>
-
-    <Button
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/separator_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:onClick="bScored"/>
-
-    <Button
-        android:text="reset"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
+        android:background="@android:color/black" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_toLeftOf="@id/separator_view"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:onClick="aScored"
+        android:text="Team A"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/separator_view"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:onClick="bScored"
+        android:text="Team B"
+        android:textColor="@android:color/white" />
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:backgroundTint="@android:color/holo_orange_dark"
-        android:onClick="reset"/>
+        android:onClick="reset"
+        android:text="reset" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Team A - "
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/a_overall_score_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/a_current_score_textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="current score: 0"
-            android:textSize="15sp" />
-    </LinearLayout>
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
 
-    <LinearLayout
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Team A - "
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/a_overall_score_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/a_current_score_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="current score: 0"
+                android:textSize="15sp" />
+
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Team B - "
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/b_overall_score_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/b_current_score_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Team B - "
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/b_overall_score_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="current score: 0"
+                android:textSize="15sp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/b_current_score_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="current score: 0"
-            android:textSize="15sp" />
     </LinearLayout>
-
 
 
 </RelativeLayout>
