@@ -6,7 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.counterapp2.MainActivity">
 
+    <View
+        android:id="@+id/separator_view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray"
+        android:layout_centerVertical="true" />
+
     <Button
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/separator_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/holo_red_dark"
@@ -14,7 +23,7 @@
 
     <Button
         android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/separator_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/holo_blue_dark"
